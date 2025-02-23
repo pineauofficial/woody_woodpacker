@@ -1,22 +1,36 @@
 NAME = woody
 
 SRCS_DIR = srcs/
-SRCS = $(wildcard $(SRCS_DIR)*.c)
+ASM_DIR = asm/
+
+SRCS = $(wildcard $(SRCS_DIR)/*.c)
+ASM_SRCS = $(wildcard $(ASM_DIR)/*.s)
+
 OBJS = $(SRCS:.c=.o)
+ASM_OBJS = $(ASM_SRCS:.s=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I includes/
+CFLAGS = -Wall -Wextra -Werror -I./includes
+
+ASM = nasm
+ASMFLAGS = -f elf64 -i $(ASM_DIR)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS) $(ASM_OBJS)
+	$(CC) $(ASM_OBJS) $(OBJS) -o $(NAME)
 
-%.o: %.c
+$(SRCS_DIR)%.o: $(SRCS_DIR)%.c
 	$(CC) $(CFLAGS) -c $< -o $@
+
+
+$(ASM_DIR)%.o: $(ASM_DIR)%.s
+	@echo "Assembling $< to $@"
+	$(ASM) $(ASMFLAGS) $< -o $@
 
 clean:
 	rm -f $(OBJS)
+	rm -f $(ASM_OBJS)
 
 fclean: clean
 	rm -f $(NAME)

@@ -33,7 +33,8 @@ int main(int argc, char **argv)
         else 
             printf("File architecture not suported. x86_64 only\n");
     } 
-    print_file(addr, file_size);
+    // print_file(addr, file_size);
+    algo();
     if (munmap(addr, file_size) != 0)
         error("munmap", -1);
     close(fd);

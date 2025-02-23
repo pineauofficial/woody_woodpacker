@@ -23,4 +23,12 @@ char *mapping(int fd, off_t file_size);
 void error(char *str, int fd);
 void print_file(char *addr, off_t file_size);
 
+/*algo.c*/
+void algo();
+
+/*ft_random.s*/
+extern ssize_t ft_random(void *buf, size_t buflen);
+extern ssize_t ft_read(int fildes, void *buf, size_t nbyte);
+extern int ft_strcmp( const char * first, const char * second );
+
 #endif
