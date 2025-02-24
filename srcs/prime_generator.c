@@ -36,7 +36,7 @@ int is_prime(int n) {
             return 1;
     }
 
-    return 0;
+    return 0;//prime
 }
 
 int prime_generator() {
@@ -62,7 +62,7 @@ int prime_generator() {
     while(1)
     {
         return_value = generator(tab_number);
-        if (return_value != -1 && is_prime(return_value) == 0 )
+        if (return_value != -1 && is_prime(return_value) == 0 && return_value > 0 && return_value < 75000 )
             break;
     }
     printf("return_value = %d\n", return_value);
