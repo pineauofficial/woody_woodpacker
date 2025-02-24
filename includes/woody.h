@@ -22,9 +22,13 @@ char *mapping(int fd, off_t file_size);
 /*utils.c*/
 void error(char *str, int fd);
 void print_file(char *addr, off_t file_size);
+char **split(char *buffer);
 
-/*algo.c*/
-void algo();
+/*prime_generator.c*/
+int prime_generator();
+void convert_and_fill(char* str, int *tab);
+int generator(int *tab);
+int is_prime(int n);
 
 /*ft_random.s*/
 extern ssize_t ft_random(void *buf, size_t buflen);

@@ -34,7 +34,15 @@ int main(int argc, char **argv)
             printf("File architecture not suported. x86_64 only\n");
     } 
     // print_file(addr, file_size);
-    algo();
+    int prime_one = 0;
+    int prime_two = 0;
+    while(1)
+    {
+        prime_one = prime_generator();
+        prime_two = prime_generator();
+        if(prime_one != prime_two)
+            break;
+    }
     if (munmap(addr, file_size) != 0)
         error("munmap", -1);
     close(fd);
