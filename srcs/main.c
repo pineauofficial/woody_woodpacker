@@ -43,6 +43,7 @@ int main(int argc, char **argv)
         if(prime_one != prime_two)
             break;
     }
+    rsa(prime_one, prime_two);
     if (munmap(addr, file_size) != 0)
         error("munmap", -1);
     close(fd);

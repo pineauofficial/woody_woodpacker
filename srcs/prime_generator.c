@@ -66,5 +66,6 @@ int prime_generator() {
             break;
     }
     printf("return_value = %d\n", return_value);
+    free_tab(tab);
     return return_value;
 }
