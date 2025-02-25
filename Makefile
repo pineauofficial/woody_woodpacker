@@ -10,7 +10,7 @@ OBJS = $(SRCS:.c=.o)
 ASM_OBJS = $(ASM_SRCS:.s=.o)
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./includes
+CFLAGS = -Wall -Wextra -Werror -g -I./includes
 
 ASM = nasm
 ASMFLAGS = -f elf64 -i $(ASM_DIR)
