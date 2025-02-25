@@ -67,6 +67,9 @@ int main(int argc, char **argv)
     PrivateKey private_key;
 
     rsa(prime_one, prime_two, &public_key, &private_key);
+
+    
+
     if (munmap(addr, file_size) != 0)
         error("munmap", -1);
     close(fd);
