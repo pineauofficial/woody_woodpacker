@@ -34,6 +34,8 @@ void error(char *str, int fd);
 void print_file(char *addr, off_t file_size);
 char **split(char *buffer);
 void free_tab(char **tab);
+int int_length(int num);
+void print_file_number(int fd, int *number_message);
 
 /*prime_generator.c*/
 int prime_generator();
@@ -50,5 +52,10 @@ extern int ft_strcmp( const char * first, const char * second );
 int rsa(int p, int q, PublicKey *public_key, PrivateKey *private_key);
 int least_common_multiple(int p, int q);
 int gcd(int a, int b);
+
+/*cryptage.c*/
+int private_decrytage(PrivateKey *private_key, int message);
+int public_cryptage(PublicKey *public_key, int message);
+int convert_message_to_int(PublicKey *public_key, PrivateKey *private_key, char *message, off_t file_size);
 
 #endif

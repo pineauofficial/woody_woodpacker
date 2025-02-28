@@ -103,8 +103,7 @@ int prime_generator() {
         
         attempts++;
     }
-    
-    printf("return_value = %d\n", return_value);
+
     free(tab_number);
     
     return return_value;

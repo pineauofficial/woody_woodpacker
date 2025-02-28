@@ -54,9 +54,9 @@ int main(int argc, char **argv)
     while(1)
     {
         prime_one = prime_generator();
+        printf("premier nombre premier = %d\n", prime_one);
         prime_two = prime_generator();
-        // prime_one = 61;
-        // prime_two = 53;
+        printf("deuxieme nombre premier = %d\n", prime_two);
         if (prime_one == -1 || prime_two == -1)
             return 1;
         if(prime_one != prime_two)
@@ -67,8 +67,7 @@ int main(int argc, char **argv)
     PrivateKey private_key;
 
     rsa(prime_one, prime_two, &public_key, &private_key);
-
-    
+    convert_message_to_int(&public_key, &private_key, addr, file_size);
 
     if (munmap(addr, file_size) != 0)
         error("munmap", -1);

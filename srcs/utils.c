@@ -17,6 +17,12 @@ void print_file(char *addr, off_t file_size) {
     }
 }
 
+void print_file_number(int fd, int *number_message) {
+    for (int i = 0; i < determine_file_size(fd); i++)
+        printf("%d", number_message[i]);
+    printf("\n");
+}
+
 char **split(char *buffer) {
 
     char **tab = (char**)malloc(sizeof(char*) * (strlen(buffer) + 1));
@@ -60,4 +66,19 @@ void free_tab(char **tab) {
         i++;
     }
     free(tab);
+}
+
+int int_length(int num) {
+    int length = 0;
+
+    if (num == 0)
+        return 1;
+    
+    while (num > 0)
+    {
+        length++;
+        num /= 10;
+    }
+    
+    return length;
 }
