@@ -1,0 +1,1 @@
+https://blog.k3170makan.com/2018/09/introduction-to-elf-format-elf-header.html
